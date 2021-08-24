@@ -13,7 +13,6 @@ const Home = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <img src="https://a.ca" />
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         <p className={styles.description}>
