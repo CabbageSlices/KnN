@@ -1,5 +1,6 @@
 #Creates a layer from node:alpine image.
 FROM node:alpine
+RUN whoami #
 
 #install git
 RUN apk add --no-cache git
@@ -8,13 +9,12 @@ RUN apk add --no-cache git
 WORKDIR /usr/src/app
 
 #Copy new files or directories into the filesystem of the container
-COPY package.json /usr/src/app
-COPY package-lock.json /usr/src/app
-
+COPY --chown=node package.json /usr/src/app
+COPY --chown=node package-lock.json /usr/src/app
 
 RUN yarn install --frozen-lockfile
 
-COPY . /usr/src/app
+COPY --chown=node . /usr/src/app
 
 #useless ass instruction
 EXPOSE 3000
@@ -22,7 +22,13 @@ EXPOSE 3000
 #build the stuff
 RUN yarn build
 
+#owner to node so he has access to the .next folder and is able to create and cache files
+RUN chown -R node .next
+
 CMD ["yarn", "start"]
+
+#default user to non root
+USER node
 
 
 
