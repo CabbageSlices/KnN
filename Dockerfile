@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 #Copy new files or directories into the filesystem of the container
 COPY --chown=node package.json /usr/src/app
-COPY --chown=node package-lock.json /usr/src/app
+COPY --chown=node yarn.lock /user/src/apop
 
 RUN yarn install --frozen-lockfile
 
@@ -22,13 +22,10 @@ EXPOSE 3000
 #build the stuff
 RUN yarn build
 
-#create a test file just to chekc if heroku is runing this dockerfile
-RUN touch testme
-
 #owner to node so he has access to the .next folder and is able to create and cache files
 RUN chown -R node .next
 
-CMD ["yarn", "testStart"]
+CMD ["yarn", "start"]
 
 #default user to non root
 USER node
