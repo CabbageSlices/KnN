@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 #Copy new files or directories into the filesystem of the container
 COPY --chown=node package.json /usr/src/app
-COPY --chown=node package-lock.json /usr/src/app
+COPY --chown=node yarn.lock /user/src/apop
 
 RUN yarn install --frozen-lockfile
 
