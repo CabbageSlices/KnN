@@ -7,6 +7,6 @@ const Container = Styled.div`
     font-size: 40px;
 `
 
-const Test = () => <Container>Hi</Container>
+const Test = () => <Container>I am rendered statically</Container>
 
 export default Test
