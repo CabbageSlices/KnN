@@ -22,10 +22,13 @@ EXPOSE 3000
 #build the stuff
 RUN yarn build
 
+#create a test file just to chekc if heroku is runing this dockerfile
+RUN touch testme
+
 #owner to node so he has access to the .next folder and is able to create and cache files
 RUN chown -R node .next
 
-CMD ["yarn", "start"]
+CMD ["yarn", "testStart"]
 
 #default user to non root
 USER node
