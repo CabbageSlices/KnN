@@ -18,6 +18,8 @@
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": "off",
     "semi": "warn",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
   }
 }
