@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CommunityCard from 'components/CommunityCard'
+import CommunityCard from 'components/Community-Card'
 
 const StyledDiv = styled.div`
   width: 100%;
