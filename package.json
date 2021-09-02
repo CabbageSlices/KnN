@@ -8,7 +8,8 @@
     "start": "next start",
     "startProd": "cross-var next start -p $PORT",
     "lint": "eslint",
-    "test": "jest --watch --runInBand"
+    "test": "jest --watch --runInBand",
+    "test:ci": "jest --ci --coverage --silent"
   },
   "dependencies": {
     "cross-var": "^1.1.0",
