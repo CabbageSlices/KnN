@@ -1,16 +1,19 @@
 #Creates a layer from node:alpine image.
-FROM node:alpine
-RUN whoami #
+FROM node:14-alpine
+
+ENV YARN_VERSION 1.22.1
+
+RUN yarn policies set-version $YARN_VERSION
 
 #install git
-RUN apk add --no-cache git
+RUN apk add --no-cache libc6-compat
 
 #Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD commands
 WORKDIR /usr/src/app
 
 #Copy new files or directories into the filesystem of the container
 COPY --chown=node package.json /usr/src/app
-COPY --chown=node yarn.lock /user/src/apop
+COPY --chown=node yarn.lock /user/src/app
 
 RUN yarn install --frozen-lockfile
 
