@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -12,12 +13,18 @@
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["prettier", "@typescript-eslint", "unused-imports"],
+  "plugins": ["jest", "prettier", "@typescript-eslint", "unused-imports"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": "off",
     "semi": "warn",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
+  },
+  "globals": {
+    "JSX": true,
+    "jest/globals": true
   }
 }
