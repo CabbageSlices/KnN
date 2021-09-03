@@ -1,11 +1,14 @@
-import GlobalStyle from 'styles/GlobalStyle'
+import GlobalStyle from 'styles/global-style'
 import type { AppProps } from 'next/app'
+import ThemeProvider from 'styles/theme-provider'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }

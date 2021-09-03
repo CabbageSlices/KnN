@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
+import { ThemeContextType, themeVariables } from 'styles/theme-provider'
 
 interface ContainerProps {
   readonly bannerURL: string
@@ -27,7 +28,7 @@ const Avatar = styled.img`
 
 const Name = styled.p`
   font-size: 19px;
-  font-weight: 700;
+  font-weight: ${themeVariables.fontWeights.bold};
   text-align: left;
   overflow: hidden;
   text-align: center;
@@ -40,8 +41,8 @@ const Name = styled.p`
 `
 
 const Members = styled.p`
-  font-size: 13px;
-  color: #63c059;
+  font-size: ${themeVariables.fontSizes.regular};
+  color: ${themeVariables.colors.link};
   margin: 0;
   cursor: pointer;
 
@@ -55,14 +56,14 @@ const JoinButton = styled.button`
   height: 36px;
   margin-top: auto;
   background: none;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: ${themeVariables.fontSizes.regular};
+  font-weight: ${themeVariables.fontWeights.bold};
   border-radius: 5px;
-  border: 1px solid #63c059;
+  border: 1px solid ${themeVariables.colors.link};
   cursor: pointer;
 
   :hover {
-    background-color: #63c059;
+    background-color: ${themeVariables.colors.link};
     color: black;
   }
 `
@@ -75,6 +76,7 @@ type CommunityCardProps = {
 }
 
 const CommunityCard = ({ name, members, avatar, bannerURL }: CommunityCardProps): JSX.Element => {
+  const theme = useTheme() as ThemeContextType
   return (
     <Container bannerURL={bannerURL}>
       <Avatar width={92} height={92} src={avatar} />
@@ -82,7 +84,7 @@ const CommunityCard = ({ name, members, avatar, bannerURL }: CommunityCardProps)
       <Members>
         <b>{members}</b> members
       </Members>
-      <JoinButton>JOIN COMMUNITY</JoinButton>
+      <JoinButton onClick={() => theme.setTheme('blah')}>JOIN COMMUNITY</JoinButton>
     </Container>
   )
 }

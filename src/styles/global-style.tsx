@@ -1,14 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
+import { themeVariables } from './theme-provider'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #292929;
+    background-color: ${themeVariables.colors.background};
     font-family: Nunito,Helvetica Neue,Helvetica,Arial,sans-serif;
-    color: #F0F0F0;
-    font-size: 13px;
+    color: ${themeVariables.colors.white};
+    font-size: ${themeVariables.fontSizes.regular};
   }
 
   body {
@@ -19,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  * {
+  *:not(body):not(html) {
     color: inherit;
   }
 `
