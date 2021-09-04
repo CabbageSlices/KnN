@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { themeVariables } from 'styles/theme-provider'
+import { themeVariablesMap } from 'styles/themes'
 
 const Container = styled.div`
-  background-color: ${themeVariables.colors.white};
-  font-size: ${themeVariables.fontSizes.regular};
-  font-weight: ${themeVariables.fontWeights.bold};
+  background-color: ${themeVariablesMap.colors.white};
+  font-size: ${themeVariablesMap.fontSizes.regular};
+  font-weight: ${themeVariablesMap.fontWeights.bold};
 `
 
 const Banner = () => <Container>I am bruce banner</Container>

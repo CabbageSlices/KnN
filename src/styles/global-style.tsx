@@ -1,15 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
-import { themeVariables } from './theme-provider'
+import { themeVariablesMap } from './themes'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: ${themeVariables.colors.background};
+    background-color: ${themeVariablesMap.colors.background};
     font-family: Nunito,Helvetica Neue,Helvetica,Arial,sans-serif;
-    color: ${themeVariables.colors.white};
-    font-size: ${themeVariables.fontSizes.regular};
+    color: ${themeVariablesMap.colors.white};
+    font-size: ${themeVariablesMap.fontSizes.regular};
   }
 
   body {

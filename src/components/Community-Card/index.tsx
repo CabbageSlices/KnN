@@ -1,5 +1,6 @@
 import styled, { useTheme } from 'styled-components'
-import { ThemeContextType, themeVariables } from 'styles/theme-provider'
+import { ThemeContextType } from 'styles/theme-provider'
+import { themeVariablesMap } from 'styles/themes'
 
 interface ContainerProps {
   readonly bannerURL: string
@@ -28,7 +29,7 @@ const Avatar = styled.img`
 
 const Name = styled.p`
   font-size: 19px;
-  font-weight: ${themeVariables.fontWeights.bold};
+  font-weight: ${themeVariablesMap.fontWeights.bold};
   text-align: left;
   overflow: hidden;
   text-align: center;
@@ -41,8 +42,8 @@ const Name = styled.p`
 `
 
 const Members = styled.p`
-  font-size: ${themeVariables.fontSizes.regular};
-  color: ${themeVariables.colors.link};
+  font-size: ${themeVariablesMap.fontSizes.regular};
+  color: ${themeVariablesMap.colors.link};
   margin: 0;
   cursor: pointer;
 
@@ -56,14 +57,14 @@ const JoinButton = styled.button`
   height: 36px;
   margin-top: auto;
   background: none;
-  font-size: ${themeVariables.fontSizes.regular};
-  font-weight: ${themeVariables.fontWeights.bold};
+  font-size: ${themeVariablesMap.fontSizes.regular};
+  font-weight: ${themeVariablesMap.fontWeights.bold};
   border-radius: 5px;
-  border: 1px solid ${themeVariables.colors.link};
+  border: 1px solid ${themeVariablesMap.colors.link};
   cursor: pointer;
 
   :hover {
-    background-color: ${themeVariables.colors.link};
+    background-color: ${themeVariablesMap.colors.link};
     color: black;
   }
 `
@@ -84,7 +85,7 @@ const CommunityCard = ({ name, members, avatar, bannerURL }: CommunityCardProps)
       <Members>
         <b>{members}</b> members
       </Members>
-      <JoinButton onClick={() => theme.setTheme('blah')}>JOIN COMMUNITY</JoinButton>
+      <JoinButton onClick={() => theme.setTheme('test')}>JOIN COMMUNITY</JoinButton>
     </Container>
   )
 }

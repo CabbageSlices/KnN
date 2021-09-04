@@ -22,6 +22,8 @@ COPY --chown=node . /usr/src/app
 #useless ass instruction
 EXPOSE 3000
 
+ENV NODE_ENV production
+
 #build the stuff
 RUN yarn build
 
