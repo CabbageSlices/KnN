@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { GlobalThemeStyle } from './themes'
 
@@ -9,9 +9,7 @@ export interface ThemeContextType {
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
   const [theme, setTheme] = useState<string>('default')
-
-  //TODO fix layouteffect
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.documentElement.dataset.theme = theme
   }, [theme])
 

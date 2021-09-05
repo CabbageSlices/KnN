@@ -46,3 +46,25 @@ it('convertThemesToGlobalStyleString generates string containing correct values 
       ":root[data-theme='inverted'] {--colors-white: #000000;\n--colors-black: #ffffff;\n--fontSizes-regular: 99px}"
   )
 })
+
+it('convertThemesToGlobalStyleString includes default theme variables as a separate selector for when theme attribute is missing', () => {
+  const themes = <Themes>{
+    default: {
+      colors: { white: '#ffffff', black: '#000000' },
+      fontSizes: { regular: '10px' },
+    },
+    inverted: {
+      colors: { white: '#000000', black: '#ffffff' },
+      fontSizes: { regular: '99px' },
+    },
+  }
+
+  const values = convertThemesToGlobalStyleString(themes, 'inverted')
+
+  expect(values).toBe(
+    //prettier-ignore
+    ":root[data-theme='default'] {--colors-white: #ffffff;\n--colors-black: #000000;\n--fontSizes-regular: 10px}\n" +
+      ":root[data-theme='inverted'] {--colors-white: #000000;\n--colors-black: #ffffff;\n--fontSizes-regular: 99px}" +
+      "\n:root:not([data-theme]), :root[data-theme=''] {--colors-white: #000000;\n--colors-black: #ffffff;\n--fontSizes-regular: 99px}"
+  )
+})
