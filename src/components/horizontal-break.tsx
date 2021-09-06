@@ -8,8 +8,11 @@ interface HorizontalBreakProps {
 
 const HorizontalBreak = styled.hr<HorizontalBreakProps>`
   width: ${props => props.width || '50px'};
-  border: 2px solid ${props => props.color || themeVariablesMap.colors.divider};
-  border-radius: 2px;
+  border: 1px solid ${props => props.color || themeVariablesMap.colors.divider};
+  height: 3px;
+  background-color: ${props => props.color || themeVariablesMap.colors.divider};
+  border-radius: 5px;
+  margin: 0;
 `
 
 export default HorizontalBreak
