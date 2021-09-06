@@ -1,14 +1,14 @@
 export type Theme = {
   colors: {
+    whitest: string
     white: string
-    background: string
+    backgroundPrimary: string
+    backgroundSecondary: string
+    backgroundTertiary: string
+    divider: string
+    darkest: string
+    lime: string
     link: string
-  }
-  fontSizes: {
-    regular: string
-  }
-  fontWeights: {
-    bold: number
   }
 }
 

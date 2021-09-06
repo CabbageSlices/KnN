@@ -7,28 +7,15 @@ import flattenObj from 'utils/flatten-obj'
 const themes: Themes = {
   default: {
     colors: {
+      whitest: '#FFFFFF',
       white: '#F0F0F0',
-      background: '#222222',
+      backgroundPrimary: '#292929',
+      backgroundSecondary: '#222222',
+      backgroundTertiary: '#1f1f1f',
+      divider: '#444444',
+      darkest: '#111111',
+      lime: '#CCFF00',
       link: '#63c059',
-    },
-    fontSizes: {
-      regular: '13px',
-    },
-    fontWeights: {
-      bold: 700,
-    },
-  },
-  test: {
-    colors: {
-      white: '#000000',
-      background: '#FF0000',
-      link: '#63c059',
-    },
-    fontSizes: {
-      regular: '29px',
-    },
-    fontWeights: {
-      bold: 900,
     },
   },
 }
