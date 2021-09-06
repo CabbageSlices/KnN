@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { cssMeasurement } from 'utils/css-types'
 
 interface ColumnProps {
-  width?: string
+  width?: cssMeasurement
   padding?: string
 }
 

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { fontSizes, fontWeights, themeVariablesMap } from 'styles'
+import { cssMeasurement } from 'utils/css-types'
 
 interface ButtonProps {
   fontSize?: string
   fontWeight?: string
-  width: string
-  height: string
+  width: cssMeasurement
+  height: cssMeasurement
   outlineColor: string
   hoverColor?: string
 }

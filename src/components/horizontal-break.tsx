@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { themeVariablesMap } from 'styles'
+import { cssMeasurement } from 'utils/css-types'
 
 interface HorizontalBreakProps {
-  width?: string
+  width?: cssMeasurement
   color?: string
 }
 

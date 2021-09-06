@@ -1,9 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { breakpoints } from 'styles'
+import { cssGridTemplateMeasurementUnits, cssMeasurement } from 'utils/css-types'
+
+type cssGridTemplateMeasurement = `${number}${cssGridTemplateMeasurementUnits}` | '0'
+type cssGridColumnSize =
+  | cssGridTemplateMeasurement
+  | `minmax(${cssGridTemplateMeasurement}, ${cssGridTemplateMeasurement})`
 
 interface GridWrapperProps {
   padding?: string
+  columnGap?: cssMeasurement
+  rowGap?: cssMeasurement
+  defaultColumnSize?: cssGridColumnSize
+  smallDesktopColumnSize?: cssGridColumnSize
 }
 
 const GridWrapper = styled.div<GridWrapperProps>`
@@ -13,17 +23,20 @@ const GridWrapper = styled.div<GridWrapperProps>`
 
   width: 100%;
 
-  column-gap: 40px;
-  row-gap: 20px;
+  column-gap: ${props => props.columnGap || '40px'};
+  row-gap: ${props => props.rowGap || '20px'};
 
-  grid-template-columns: repeat(auto-fill, 254px);
+  grid-template-columns: repeat(auto-fill, ${props => props.defaultColumnSize || '254px'});
   justify-content: center;
 
-  @media only screen and (max-width: ${breakpoints.smallDesktop.maxWidth}) {
-    grid-template-columns: repeat(auto-fill, minmax(284px, 1fr));
+  @media screen and (max-width: ${breakpoints.smallDesktop.maxWidth}) {
+    grid-template-columns: repeat(
+      auto-fill,
+      ${props => props.smallDesktopColumnSize || 'minmax(284px, 1fr)'}
+    );
   }
 
-  @media only screen and (max-width: ${breakpoints.tablet.maxWidth}) {
+  @media screen and (max-width: ${breakpoints.tablet.maxWidth}) {
     grid-template-columns: 1fr;
   }
 `
@@ -31,10 +44,29 @@ const GridWrapper = styled.div<GridWrapperProps>`
 interface IGrid {
   children?: React.ReactNode
   padding?: string
+  columnGap?: cssMeasurement
+  rowGap?: cssMeasurement
+  defaultColumnSize?: cssGridColumnSize
+  smallDesktopColumnSize?: cssGridColumnSize
 }
 
-const Grid = ({ children, padding }: IGrid): JSX.Element => (
-  <GridWrapper padding={padding}>{children}</GridWrapper>
+const Grid = ({
+  children,
+  padding,
+  columnGap,
+  rowGap,
+  defaultColumnSize,
+  smallDesktopColumnSize,
+}: IGrid): JSX.Element => (
+  <GridWrapper
+    padding={padding}
+    defaultColumnSize={defaultColumnSize}
+    rowGap={rowGap}
+    columnGap={columnGap}
+    smallDesktopColumnSize={smallDesktopColumnSize}
+  >
+    {children}
+  </GridWrapper>
 )
 
 export default Grid

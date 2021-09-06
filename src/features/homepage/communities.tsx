@@ -48,7 +48,7 @@ const Communities = () => (
       Find a community to create and explore gaming videos, fanart, discussions, and more!
     </Text>
     <HorizontalBreak />
-    <Grid padding="40px 0">
+    <Grid padding="40px 0" defaultColumnSize="254px" smallDesktopColumnSize="minmax(284px, 1fr)">
       <CommunityCard
         name="Minecraft"
         members="424,843"
